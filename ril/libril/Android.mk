@@ -21,6 +21,7 @@ LOCAL_SHARED_LIBRARIES := \
     libhardware_legacy \
     librilutils \
     android.hardware.radio@1.0 \
+    android.hardware.radio@1.1 \
     android.hardware.radio.deprecated@1.0 \
     libhidlbase  \
     libhidltransport \
@@ -60,6 +61,10 @@ endif
 
 ifneq ($(DISABLE_RILD_OEM_HOOK),)
     LOCAL_CFLAGS += -DOEM_HOOK_DISABLED
+endif
+
+ifneq ($(TARGET_USES_OLD_MNC_FORMAT),)
+    LOCAL_CFLAGS += -DOLD_MNC_FORMAT
 endif
 
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
