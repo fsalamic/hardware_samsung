@@ -87,7 +87,7 @@ static void *offload_thread_loop(void *context)
     struct listnode *item;
 
     setpriority(PRIO_PROCESS, 0, ANDROID_PRIORITY_AUDIO);
-    set_sched_policy(0, SP_FOREGROUND);
+//    set_sched_policy(0, SP_FOREGROUND);
     prctl(PR_SET_NAME, (unsigned long)"Offload Callback", 0, 0, 0);
 
     ALOGV("%s", __func__);
